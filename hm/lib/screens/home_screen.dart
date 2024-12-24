@@ -6,6 +6,32 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber,
+      body: ListView(
+        children: [
+          Container(
+            height: 100,
+            color: Colors.blue[400],
+            child: const Center(
+              child: Text('Test My App'),
+            ),
+          ),
+          Container(
+            height: 100,
+            color: Colors.blue[200],
+            child: const Center(
+              child: Text('Test My App'),
+            ),
+          ),
+          Container(
+            height: 100,
+            color: Colors.blue,
+            child: const Center(
+              child: Text('Test My App'),
+            ),
+          ),
+        ],
+      ),
       appBar: AppBar(
         title: const Text('Edit profile'),
         centerTitle: true,
