@@ -32,29 +32,52 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+
       appBar: AppBar(
-        title: const Text('Edit profile'),
         centerTitle: true,
-        leading: const Icon(Icons.arrow_back),
+        leading: const Row(
+          mainAxisSize: MainAxisSize.min, // บีบ Row ให้กระชับ
+          children: [
+            Icon(Icons.local_fire_department, color: Colors.red),
+            SizedBox(width: 5),
+            Text(
+              'TINDER',
+              style: TextStyle(color: Colors.red, fontSize: 16),
+            ),
+          ],
+        ),
+
         actions: const [
-          Icon(Icons.search),
-          SizedBox(width: 5),
-          Icon(Icons.add_a_photo),
+          Icon(Icons.notifications, color: Colors.grey),
+          SizedBox(width: 20),
+          Icon(Icons.tune, color: Colors.grey),
+          SizedBox(width: 20),
+          Icon(Icons.bolt,color: Colors.purpleAccent),
           SizedBox(width: 20),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        // selectedItemColor: Colors.blue, // สีไอคอนเมื่อ active
+        // unselectedItemColor: Colors.grey, // สีไอคอนเมื่อไม่ได้ active
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.local_fire_department, color: Colors.grey),
+            label: 'fire',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business_sharp),
-            label: 'business',
+            icon: Icon(Icons.view_list, color: Colors.grey),
+            label: 'list',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.star, color: Colors.grey),
+            label: 'star',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.forum, color: Colors.grey),
+            label: 'forum',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, color: Colors.grey),
             label: 'setting',
           ),
         ],
