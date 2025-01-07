@@ -12,7 +12,7 @@ class ProfileImage extends StatelessWidget {
         alignment: Alignment.bottomRight,
         children: [
           CircleAvatar(
-            backgroundColor: Colors.amber,
+            backgroundColor:Color.fromARGB(255, 189, 189, 189),
             radius: 60,
             child: CircleAvatar(
               radius: 55,
@@ -20,14 +20,14 @@ class ProfileImage extends StatelessWidget {
             ),
           ),
           CircleAvatar(
-            backgroundColor: bgPrimaryColor,
+            backgroundColor:Color.fromARGB(255, 189, 189, 189),
             radius: 22,
             child: CircleAvatar(
-              backgroundColor: Colors.amber,
+              backgroundColor: const Color.fromARGB(255, 70, 135, 189),
               child: Icon(
                 Icons.edit,
                 size: 20,
-                color: Colors.black,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ),
