@@ -32,7 +32,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-
       appBar: AppBar(
         centerTitle: true,
         leading: const Row(
@@ -46,13 +45,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-
         actions: const [
           Icon(Icons.notifications, color: Colors.grey),
           SizedBox(width: 20),
           Icon(Icons.tune, color: Colors.grey),
           SizedBox(width: 20),
-          Icon(Icons.bolt,color: Colors.purpleAccent),
+          Icon(Icons.bolt, color: Colors.purpleAccent),
           SizedBox(width: 20),
         ],
       ),
