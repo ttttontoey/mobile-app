@@ -1,59 +1,101 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/constant/constant.dart';
+import 'package:myapp/screen/homescreen.dart';
+import 'package:myapp/screen/editprofilescreen.dart';
 
 import '../components/profile_img.dart';
 import '../components/profile_menu.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  int _selectedItem = 0;
+
+  void _navigationBottomNavBar(int index) {
+    setState(() {
+      _selectedItem = index;
+      print(index);
+    });
+  }
+
+  final List<Widget> _pages = [
+    const HomeScreen(),
+    const Text('Setting'),
+    const Text('Favorite'),
+    const EditProfileScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const ProfileImage(),
-          const SizedBox(height: 20),
-          Text(
-            'Mongkolrach Wadsuntad',
+      appBar: AppBar(
+        leading: const Icon(
+          Icons.arrow_back_ios,
+          size: 20,
+          color: Color.fromARGB(255, 70, 135, 189),
+        ),
+        title: Center(
+          child: Text(
+            'Edit Profile',
             style: textTitle,
           ),
-          const SizedBox(height: 3),
-          Text(
-            's6503051624076@email.kmutnb.ac.th',
-            style: textSubTitle,
+        ),
+        actions: const [
+          Icon(
+            Icons.exit_to_app,
+            size: 20,
+            color: Color.fromARGB(255, 70, 135, 189),
           ),
-          const SizedBox(height: 5),
-          Container(
-            width: 150,
-            height: 50,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 106, 173, 228),
-              borderRadius: BorderRadius.circular(25.0),
+          SizedBox(
+            width: 10,
+          ),
+        ],
+      ),
+      body: _pages[_selectedItem],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedItem,
+        onTap: _navigationBottomNavBar,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 30,
+              color: Color.fromARGB(255, 70, 135, 189),
             ),
-            child: Center(
-                child: Text(
-              'Edit Profile',
-              style: textBtn,
-            )),
+            label: 'home',
           ),
-          //profile menu
-          const SizedBox(
-            height: 20,
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              size: 30,
+              color: Color.fromARGB(255, 70, 135, 189),
+            ),
+            label: 'setting',
           ),
-           const ProfileMenu(title: 'Setting', icons: Icons.settings,),
-           const SizedBox(height: 15,),
-           const ProfileMenu(title: 'Billing Detail', icons: Icons.wallet,),
-           const SizedBox(height: 15,),
-           const ProfileMenu(title: 'User Management', icons: Icons.person,),
-           const SizedBox(height: 15,),
-           const ProfileMenu(title: 'Favorite', icons: Icons.favorite,),
-           const SizedBox(height: 15,),
-           const ProfileMenu(title: 'Log out', icons: Icons.logout,),
-           const SizedBox(height: 15,),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite,
+              size: 30,
+              color: Color.fromARGB(255, 70, 135, 189),
+            ),
+            label: 'favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              size: 30,
+              color: Color.fromARGB(255, 70, 135, 189),
+            ),
+            label: 'Edit profile',
+          ),
         ],
       ),
     );
   }
 }
-
