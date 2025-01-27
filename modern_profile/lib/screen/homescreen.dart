@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/screen/favoritesscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,19 +24,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  List<String> profiles = ["John", "Emily", "James", "Alice"];
+  List<String> profiles = ["เจฟ", "จี๋", "เฟย"];
   int currentIndex = 0;
 
-  // สร้างแผนที่เพื่อเชื่อมโยงชื่อกับเส้นทางของรูปภาพ
   final Map<String, String> profileImages = {
     "เจฟ": "images/jeff.jpg",
     "จี๋": "images/jee.jpg",
     "เฟย": "images/fai.jpg",
   };
 
-  // Function to simulate swiping
+  List<String> favorites = []; // เก็บโปรไฟล์ที่ถูกกด Like
+
   void swipeRight() {
     setState(() {
+      // เพิ่มโปรไฟล์ลงในรายการ Favorites หากยังไม่มี
+      if (!favorites.contains(profiles[currentIndex])) {
+        favorites.add(profiles[currentIndex]);
+      }
       currentIndex = (currentIndex + 1) % profiles.length;
     });
   }
@@ -46,62 +51,85 @@ class HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void navigateToFavorites() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FavoritesScreen(
+          favorites: favorites,
+          profileImages: profileImages,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite, color: Colors.white),
+            onPressed: navigateToFavorites, // ปุ่มไปยังหน้า Favorites
+          ),
+        ],
       ),
-      body: Center(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            // This creates a stack of cards
-            for (int i = 0; i < profiles.length; i++)
-              if (i == currentIndex)
-                Positioned(
-                  child: Card(
-                    color: Colors.white,
-                    elevation: 5,
-                    child: Container(
-                      width: 300,
-                      height: 400,
-                      child: Center(
-                        // ใช้ Image.asset ตามชื่อใน profileImages
-                        child: Image.asset(
-                          profileImages[profiles[i]] ??
-                              '', // ใช้แผนที่เพื่อดึงเส้นทางรูปภาพ
-                          fit: BoxFit.cover,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Center(
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  for (int i = 0; i < profiles.length; i++)
+                    if (i == currentIndex)
+                      Card(
+                        color: Colors.white,
+                        elevation: 5,
+                        child: Container(
+                          width: 300,
+                          height: 400,
+                          child: Center(
+                            child: Image.asset(
+                              profileImages[profiles[i]] ?? '',
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const Text("Image not found");
+                              },
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
-            // "Like", "Dislike", etc buttons
-            Positioned(
-              bottom: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.clear, color: Colors.red, size: 40),
-                    onPressed: swipeLeft,
-                  ),
-                  const SizedBox(width: 20),
-                  IconButton(
-                    icon: const Icon(Icons.favorite,
-                        color: Colors.green, size: 40),
-                    onPressed: swipeRight,
-                  ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 30.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.clear, color: Colors.red, size: 40),
+                  onPressed: swipeLeft,
+                ),
+                const SizedBox(width: 20),
+                IconButton(
+                  icon: const Icon(Icons.favorite,
+                      color: Colors.green, size: 40),
+                  onPressed: swipeRight,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
 
 // import 'package:flutter/material.dart';
 // import 'package:myapp/components/profile_img.dart';
