@@ -3,7 +3,9 @@ import 'package:myapp/constant/constant.dart';
 import 'package:myapp/screen/homescreen.dart';
 import 'package:myapp/screen/editprofilescreen.dart';
 
+// ignore: unused_import
 import '../components/profile_img.dart';
+// ignore: unused_import
 import '../components/profile_menu.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -15,6 +17,13 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   int _selectedItem = 0;
+
+  final List<String> _appBarTitles = [
+    'Home', // Title for Home Screen
+    'Setting', // Title for Setting Screen
+    'Favorite', // Title for Favorite Screen
+    'Edit Profile', // Title for Edit Profile Screen
+  ];
 
   void _navigationBottomNavBar(int index) {
     setState(() {
@@ -41,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         title: Center(
           child: Text(
-            'Edit Profile',
+            _appBarTitles[_selectedItem],
             style: textTitle,
           ),
         ),
