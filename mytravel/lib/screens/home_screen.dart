@@ -4,19 +4,51 @@ import 'package:mytravel/constants/colors.dart';
 import 'package:mytravel/models/data.dart';
 import 'package:mytravel/widgets/dastination.dart';
 
+import '../widgets/icon_tab.dart';
+import '../widgets/profile.dart';
+import '../widgets/search_bar.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 250, 245, 240), // เพิ่มสีพื้นหลังที่นี่
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            children:[
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //row 1 - profile image and menu
+              const ProfileWidget(),
+              const SizedBox(
+                height: 20,
+              ),
+              //row 2 text
+              Text(
+                "Point Of Interest",
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                      color: primaryColors,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              //Row 3 text box - textfield
+              const SizedBox(
+                height: 20,
+              ),
+              const SearchingBar(),
+              //row 4 -icon tab
+              const SizedBox(
+                height: 20,
+              ),
+              const IconTab(),
               //Row 5 - Top destinations
+              const SizedBox(
+                height: 20,
+              ),
               const Row(
                 children: [
                   Text(
@@ -34,6 +66,9 @@ class HomeScreen extends StatelessWidget {
                     color: primaryColors,
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 20,
               ),
               GridView.count(
                 crossAxisCount: 2,

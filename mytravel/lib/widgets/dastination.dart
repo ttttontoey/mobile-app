@@ -62,7 +62,7 @@ class DestinationWidget extends StatelessWidget {
                           ),
                           const Icon(
                             Icons.star,
-                            color: Colors.orange,
+                            color: Color.fromARGB(255, 255, 187, 0),
                           ),
                         ],
                       ),

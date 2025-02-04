@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(textTheme: GoogleFonts.aleoTextTheme()),
+      theme: ThemeData(textTheme: GoogleFonts.aDLaMDisplayTextTheme()),
       title: "My Travel",
       home: const HomeScreen(),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/constant/constant.dart';
-import 'package:myapp/main.dart';
+import 'package:myapp/screen/homescreen.dart';
 import 'package:myapp/screen/editprofilescreen.dart';
 
 // ignore: unused_import
@@ -42,69 +42,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          size: 20,
-          color: Color.fromARGB(255, 70, 135, 189),
-        ),
-        title: Center(
-          child: Text(
-            _appBarTitles[_selectedItem],
-            style: textTitle,
-          ),
-        ),
-        actions: const [
-          Icon(
-            Icons.exit_to_app,
-            size: 20,
-            color: Color.fromARGB(255, 70, 135, 189),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-        ],
+  backgroundColor: Colors.black,
+  appBar: AppBar(
+    title: Text("สำหรับคุณ"),
+    backgroundColor: Colors.black,
+    foregroundColor: Colors.white,
+  ),
+  body: ListView.builder(
+    itemCount: posts.length,
+    itemBuilder: (context, index) {
+      return PostCard(post: posts[index]);
+    },
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    backgroundColor: Colors.black,
+    selectedItemColor: Colors.blue,
+    unselectedItemColor: Colors.grey,
+    items: const [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'หน้าแรก',
       ),
-      body: _pages[_selectedItem],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedItem,
-        onTap: _navigationBottomNavBar,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              size: 30,
-              color: Color.fromARGB(255, 70, 135, 189),
-            ),
-            label: 'home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              size: 30,
-              color: Color.fromARGB(255, 70, 135, 189),
-            ),
-            label: 'setting',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite,
-              size: 30,
-              color: Color.fromARGB(255, 70, 135, 189),
-            ),
-            label: 'favorite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              size: 30,
-              color: Color.fromARGB(255, 70, 135, 189),
-            ),
-            label: 'Edit profile',
-          ),
-        ],
+      BottomNavigationBarItem(
+        icon: Icon(Icons.search),
+        label: 'ค้นหา',
       ),
-    );
+      BottomNavigationBarItem(
+        icon: Icon(Icons.person),
+        label: 'โปรไฟล์',
+      ),
+    ],
+  ),
+);
   }
 }
