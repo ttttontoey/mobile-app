@@ -20,17 +20,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // import 'package:flutter/material.dart';
 
 // void main() {
@@ -64,13 +53,13 @@ class MyApp extends StatelessWidget {
 //         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
 //         useMaterial3: true,
 //       ),
-//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+//       home: const MyHomeScreen(title: 'Flutter Demo Home Page'),
 //     );
 //   }
 // }
 
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key, required this.title});
+// class MyHomeScreen extends StatefulWidget {
+//   const MyHomeScreen({super.key, required this.title});
 
 //   // This widget is the home page of your application. It is stateful, meaning
 //   // that it has a State object (defined below) that contains fields that affect
@@ -84,10 +73,10 @@ class MyApp extends StatelessWidget {
 //   final String title;
 
 //   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
+//   State<MyHomeScreen> createState() => _MyHomeScreenState();
 // }
 
-// class _MyHomePageState extends State<MyHomePage> {
+// class _MyHomeScreenState extends State<MyHomeScreen> {
 //   int _counter = 0;
 
 //   void _incrementCounter() {
@@ -115,7 +104,7 @@ class MyApp extends StatelessWidget {
 //         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
 //         // change color while the other colors stay the same.
 //         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-//         // Here we take the value from the MyHomePage object that was created by
+//         // Here we take the value from the MyHomeScreen object that was created by
 //         // the App.build method, and use it to set our appbar title.
 //         title: Text(widget.title),
 //       ),
