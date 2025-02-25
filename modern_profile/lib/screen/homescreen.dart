@@ -88,7 +88,7 @@ class HomeScreenState extends State<HomeScreen> {
                       Card(
                         color: Colors.white,
                         elevation: 5,
-                        child: Container(
+                        child: SizedBox(
                           width: 300,
                           height: 400,
                           child: Center(

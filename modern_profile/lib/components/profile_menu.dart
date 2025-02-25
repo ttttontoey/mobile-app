@@ -8,10 +8,10 @@ class ProfileMenu extends StatelessWidget {
   final IconData icons;
 
   const ProfileMenu({
-    Key? key,
+    super.key,
     required this.title,
     required this.icons,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

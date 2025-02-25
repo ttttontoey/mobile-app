@@ -46,7 +46,6 @@ class IconTab extends StatelessWidget {
           color: volcanoColor,
           icon: Icons.forest,
         ),
-        Spacer(),
       ],
     );
   }

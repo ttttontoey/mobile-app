@@ -24,7 +24,7 @@ class ProfileImage extends StatelessWidget {
             backgroundColor:Color.fromARGB(255, 189, 189, 189),
             radius: 22,
             child: CircleAvatar(
-              backgroundColor: const Color.fromARGB(255, 70, 135, 189),
+              backgroundColor: Color.fromARGB(255, 70, 135, 189),
               child: Icon(
                 Icons.edit,
                 size: 20,
