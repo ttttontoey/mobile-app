@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mytravel/screens/home_screen.dart';
 // import 'package:mytravel/screens/signup_screen.dart';
-// import 'screens/home_screen.dart';
 import 'screens/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'screens/signup_screen copy.dart';
+// import 'screens/signup_screen copy.dart;
 
 bool show = true;
 Future<void> main() async {
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(textTheme: GoogleFonts.aDLaMDisplayTextTheme()),
       title: "My Travel",
       // home: const HomeScreen(),
-      home: show ?const OnboardingScreen() : SignUpPage(),
+      home: show ?const OnboardingScreen() : const HomeScreen(),
       // HomeScreen(),
     );
   }
