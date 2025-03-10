@@ -50,7 +50,7 @@ class DataforSearchScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
-        title: Text("$query", style: TextStyle(color: Colors.white)),
+        title: Text(query, style: TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: Padding(

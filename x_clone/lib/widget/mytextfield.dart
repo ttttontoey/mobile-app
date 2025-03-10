@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
   const MyTextField({
-    super.key,required this.controller, required this.labelText, required this.hintText, required this.obscureText,
+    super.key,required this.controller, required this.labelText, required this.hintText, required this.obscureText, required Color textColor,
   });
   final controller;
   final String labelText;

@@ -1,16 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mytravel/screens/signup_screen%20copy.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../widgets/mybutton.dart';
 import '../widgets/mytextfield.dart';
+import 'home_screen.dart';
 
-class SignInPage extends StatelessWidget {
-  SignInPage({super.key});
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
 
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final pwdController = TextEditingController();
+  final String txtMsg = "";
+
+  signInWithEmailAndPassword() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: pwdController.text);
+      print("SignIn Successfully!");
+
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+    } on FirebaseException catch (e) {
+      print(e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +73,9 @@ class SignInPage extends StatelessWidget {
                 height: 20,
               ),
               MyTextField(
-                controller: nameController,
-                labelText: "Name",
-                hintText: "Enter Your Name",
+                controller: emailController,
+                labelText: "Email",
+                hintText: "Enter Your Email",
                 obscureText: false,
               ),
               const SizedBox(
@@ -80,7 +101,9 @@ class SignInPage extends StatelessWidget {
                 height: 15,
               ),
               MyButton(
-                onTap: () {},
+                onTap: () {
+                  signInWithEmailAndPassword();
+                },
                 labelText: 'Sign In',
               ),
               const SizedBox(
@@ -99,7 +122,7 @@ class SignInPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                SignUpPage()), // ไปหน้า Sign In
+                                const SignUpPage()), // ไปหน้า Sign In
                       );
                     },
                     child: const Text("Register Now!"),
