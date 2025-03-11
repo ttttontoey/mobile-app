@@ -11,33 +11,33 @@ class MainChatScreen extends StatefulWidget {
 class _MainChatScreenState extends State<MainChatScreen> {
   final List<Map<String, dynamic>> chatList = [
     {
-      'name': 'Kridsada Samata',
+      'name': 'Samata',
       'message': 'อุย',
       'time': 'เมื่อวาน',
       'unread': 1,
       'avatar': 'assets/images/post4.jpg',
       'messages': [
         {'text': 'สวัสดี', 'isMe': true, 'time': '10:00'},
-        {'text': 'อุย', 'isMe': false, 'time': '10:01'},
+        {'text': 'ว่าไงงงง', 'isMe': false, 'time': '10:01'},
       ],
     },
     {
-      'name': 'Toni.156 👌🏻',
+      'name': 'Ton',
       'message': 'อุย',
       'time': 'เมื่อวาน',
       'unread': 1,
-      'avatar': 'assets/images/avatar2.png',
+      'avatar': 'assets/images/post7.jpg',
       'messages': [
         {'text': 'สวัสดี', 'isMe': true, 'time': '10:00'},
-        {'text': 'อุย', 'isMe': false, 'time': 'เมื่อวาน'},
+        {'text': 'ติดต่ออะไรครับ', 'isMe': false, 'time': 'เมื่อวาน'},
       ],
     },
     {
-      'name': 'EnET-C (32)',
+      'name': 'Kris',
       'message': 'Hello',
       'time': 'เมื่อวาน',
       'unread': 1,
-      'avatar': 'assets/images/avatar3.png',
+      'avatar': 'assets/images/post13.jpg',
       'messages': [
         {'text': 'Hello', 'isMe': false, 'time': '09:45'},
       ],
